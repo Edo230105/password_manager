@@ -17,7 +17,7 @@ A comprehensive password manager with MFA support, browser extension integration
 
 ### 1. Clone the Repository
 \`\`\`bash
-git clone https://github.com/yourusername/password_manager.git
+git clone https://github.com/Edo230105/password_manager.git
 cd password-manager
 \`\`\`
 
