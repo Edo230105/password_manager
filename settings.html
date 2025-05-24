@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Password Manager Settings</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .setting-group {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .setting-group:last-child {
+            border-bottom: none;
+        }
+        
+        .setting-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .setting-description {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 12px;
+        }
+        
+        .setting-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-connected {
+            background: #28a745;
+        }
+        
+        .status-disconnected {
+            background: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Password Manager Settings</h1>
+        
+        <div class="setting-group">
+            <div class="setting-label">Connection Status</div>
+            <div class="setting-description">Status of connection to desktop Password Manager</div>
+            <div id="connectionStatus">
+                <span class="status-indicator status-disconnected"></span>
+                Checking connection...
+            </div>
+        </div>
+        
+        <div class="setting-group">
+            <div class="setting-label">Desktop App Port</div>
+            <div class="setting-description">Port number for communicating with the desktop app</div>
+            <input type="number" id="portInput" class="setting-input" value="8765" min="1024" max="65535">
+        </div>
+        
+        <div class="setting-group">
+            <div class="setting-label">Auto-fill Behavior</div>
+            <div class="setting-description">How the extension should behave when auto-filling</div>
+            <select id="autofillBehavior" class="setting-input">
+                <option value="auto">Auto-fill if single match found</option>
+                <option value="prompt">Always prompt for selection</option>
+                <option value="manual">Manual selection only</option>
+            </select>
+        </div>
+        
+        <div class="setting-group">
+            <div class="setting-label">Security</div>
+            <div class="setting-description">Security and privacy settings</div>
+            <label>
+                <input type="checkbox" id="clearClipboard"> Clear clipboard after 30 seconds
+            </label>
+        </div>
+        
+        <button class="btn" onclick="saveSettings()">Save Settings</button>
+    </div>
+    
+    <script src="settings.js"></script>
+</body>
+</html>
